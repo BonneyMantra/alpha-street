@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-03-09T00:00:00.000Z",
+  "repo": "alpha-street",
+  "mode": "code-reality-only",
+  "notes": [
+    "Mapped from implemented Next pages, CRE workflow, and Foundry contracts.",
+    "No inferred modules were added from docs-only roadmap content."
+  ],
+  "frontend": {
+    "appPath": "frontend/src/app",
+    "pages": ["/", "/invest", "/trades"],
+    "apiRoutes": []
+  },
+  "workflows": {
+    "packagePath": "workflows",
+    "simulateOnly": true,
+    "entries": ["trading"]
+  },
+  "contracts": {
+    "packagePath": "contracts",
+    "src": ["AlphaVault.sol", "TestUSDC.sol"],
+    "tests": ["test/AlphaVault.t.sol"]
+  },
+  "testModules": [
+    {
+      "key": "frontend-core",
+      "priority": "smoke",
+      "pages": ["/", "/invest", "/trades"]
+    },
+    {
+      "key": "trading-workflow",
+      "priority": "regression",
+      "workflowEntries": ["trading"]
+    },
+    {
+      "key": "contracts-core",
+      "priority": "regression",
+      "contractTests": ["test/AlphaVault.t.sol"]
+    }
+  ],
+  "excludedAsAspirational": [
+    "docs/MVP.md items not represented in src/app, workflows, or contracts"
+  ]
+}

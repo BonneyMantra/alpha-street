@@ -1,0 +1,19 @@
+workflow=trading
+status=1
+
+stdout:
+✓ Workflow compiled
+2026-03-09T19:40:16Z [SIMULATION] Simulator Initialized
+
+2026-03-09T19:40:16Z [SIMULATION] Running trigger trigger=http-trigger@1.0.0-alpha
+2026-03-09T19:40:17Z [USER LOG] Vault state — totalAssets: 100000000000, NAV: 100000000000, trades: 2
+2026-03-09T19:40:18Z [USER LOG] Prices — ETH: $2011.22, BTC: $68754, AVAX: $9.25
+Capability 'confidential-http@1.0.0-alpha' method 'SendRequest' returned an error: capability execution failed with user error: [3]InvalidArgument: failed to read response body: context deadline exceeded (Client.Timeout or context cancellation while reading body)
+
+
+stderr:
+Initializing...
+Loading settings...
+Checking RPC connectivity...
+Compiling workflow...
+✗ Workflow execution failed:

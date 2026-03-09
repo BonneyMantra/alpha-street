@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "workflows": [
+    {
+      "workflow": "trading",
+      "section": "cre-simulate",
+      "specIds": ["AS-CRE-1", "AS-CRE-2"],
+      "fixture": "docs/fixtures/workflows/trading.json"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-03-09T00:00:00.000Z",
+  "normalizedSections": {
+    "alpha-street/frontend-core": {
+      "source": "frontend/src/app",
+      "mappedPages": ["/", "/invest", "/trades"]
+    },
+    "alpha-street/cre-simulate": {
+      "source": "workflows/trading/main.ts",
+      "simulateOnly": true
+    },
+    "alpha-street/contracts-core": {
+      "source": "contracts/test/AlphaVault.t.sol",
+      "runner": "forge test --json"
+    }
+  },
+  "discarded": ["docs/MVP.md items with no implementation surface"]
+}

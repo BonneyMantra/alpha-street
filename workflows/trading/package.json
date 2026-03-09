@@ -1,0 +1,11 @@
+{
+  "name": "alpha-street-trading",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@chainlink/cre-sdk": "latest",
+    "viem": "^2.21.0",
+    "zod": "^3.23.0"
+  }
+}

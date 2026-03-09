@@ -1,0 +1,55 @@
+{
+  "app": "alpha-street",
+  "section": "contracts-core",
+  "title": "Contracts Core",
+  "description": "Deterministic Foundry mapping for AlphaVault contracts.",
+  "executionOrder": 3,
+  "sectionDependsOn": ["alpha-street/frontend-core"],
+  "tests": [
+    {
+      "id": "AS-CON-1",
+      "title": "AlphaVault Foundry suite passes and maps to deterministic results artifact.",
+      "description": "This test validates the AlphaVault contract through existing Foundry tests and maps the outcome to the spec system. It catches on-chain behavior regressions.",
+      "preconditions": [
+        "forge is installed",
+        "contracts dependencies are available"
+      ],
+      "steps": [
+        "Run forge test --json in contracts package",
+        "Extract AlphaVault.t.sol suite status",
+        "Write deterministic mapping evidence"
+      ],
+      "successCriteria": "AlphaVault.t.sol passes and mapping artifact is generated successfully.",
+      "mode": "manual",
+      "priority": "regression",
+      "tags": ["forge", "contracts", "alphavault"],
+      "dependsOn": [],
+      "fixtures": [],
+      "routes": [],
+      "pages": [],
+      "tables": ["onchain_vault", "onchain_trades"],
+      "roles": ["operator"]
+    },
+    {
+      "id": "AS-CON-2",
+      "title": "Foundry contract suite remains stable across repeated deterministic executions.",
+      "description": "This deep contract test verifies that repeated forge execution yields stable outcomes for mapped suites. It catches flakiness and hidden order dependencies.",
+      "preconditions": ["AS-CON-1 passes"],
+      "steps": [
+        "Run forge test --json and capture suite status",
+        "Run forge test --json again with unchanged code",
+        "Verify consistent outcomes and no flaky behavior"
+      ],
+      "successCriteria": "Repeated forge executions are consistent and deterministic for mapped suites.",
+      "mode": "manual",
+      "priority": "deep",
+      "tags": ["contracts", "forge", "determinism"],
+      "dependsOn": ["AS-CON-1"],
+      "fixtures": [],
+      "routes": [],
+      "pages": [],
+      "tables": ["onchain_vault", "onchain_trades"],
+      "roles": ["operator"]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "app": "alpha-street",
+  "section": "frontend-core",
+  "title": "Frontend Core",
+  "description": "Smoke and regression checks for alpha-street implemented pages.",
+  "executionOrder": 1,
+  "tests": [
+    {
+      "id": "AS-FE-1",
+      "title": "Home, invest, and trades pages render without runtime crashes.",
+      "description": "This smoke test validates route-level render stability on all implemented frontend pages. It catches hydration and component regressions quickly.",
+      "preconditions": ["frontend is running on localhost:3020"],
+      "steps": [
+        "Open /",
+        "Open /invest",
+        "Open /trades and verify no runtime exception"
+      ],
+      "successCriteria": "All routes render and remain interactive without error boundaries.",
+      "mode": "browser",
+      "priority": "smoke",
+      "tags": ["frontend", "navigation"],
+      "dependsOn": [],
+      "fixtures": ["frontend.baseUrl"],
+      "routes": [],
+      "pages": ["/", "/invest", "/trades"],
+      "tables": [],
+      "roles": ["visitor", "investor"]
+    },
+    {
+      "id": "AS-FE-2",
+      "title": "Invest page interactions stay stable under deterministic input actions.",
+      "description": "This browser regression test validates basic invest UI interactions and state transitions. It protects against form/action regressions in investment flow.",
+      "preconditions": ["frontend is running"],
+      "steps": [
+        "Open /invest",
+        "Input deterministic values in available controls",
+        "Trigger primary action and observe stable UI transition"
+      ],
+      "successCriteria": "Interaction does not crash and expected pending/success UI state is shown.",
+      "mode": "browser",
+      "priority": "regression",
+      "tags": ["invest", "ui"],
+      "dependsOn": ["AS-FE-1"],
+      "fixtures": [],
+      "routes": [],
+      "pages": ["/invest"],
+      "tables": [],
+      "roles": ["investor"]
+    },
+    {
+      "id": "AS-FE-3",
+      "title": "Cross-page investment journey remains stable during repeated navigation between invest and trades.",
+      "description": "This deep browser test validates a realistic navigation journey with repeated route transitions. It catches state and routing regressions that do not appear in isolated page checks.",
+      "preconditions": ["AS-FE-1 passes"],
+      "steps": [
+        "Open /invest and interact with deterministic controls",
+        "Navigate to /trades and back to /invest",
+        "Confirm UI remains stable and interactive after transitions"
+      ],
+      "successCriteria": "Journey completes without runtime errors and both pages remain interactive after repeated transitions.",
+      "mode": "browser",
+      "priority": "deep",
+      "tags": ["journey", "navigation", "deep"],
+      "dependsOn": ["AS-FE-1"],
+      "fixtures": [],
+      "routes": [],
+      "pages": ["/invest", "/trades"],
+      "tables": [],
+      "roles": ["investor"]
+    }
+  ]
+}

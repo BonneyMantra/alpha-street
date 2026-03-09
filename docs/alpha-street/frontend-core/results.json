@@ -1,0 +1,56 @@
+{
+  "app": "alpha-street",
+  "section": "frontend-core",
+  "lastRun": "2026-03-09T13:20:00.000Z",
+  "runner": "browser",
+  "results": [
+    {
+      "id": "AS-FE-1",
+      "status": "pass",
+      "notes": "All 3 pages render: /, /invest, /trades",
+      "lastRun": {
+        "ranAt": "2026-03-09T13:20:00.000Z",
+        "runner": "browser",
+        "environment": { "browser": "chromium" },
+        "evidence": [
+          {
+            "type": "playwright-report",
+            "path": "frontend/e2e/results/report.json"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AS-FE-2",
+      "status": "pass",
+      "notes": "All 3 pages render: /, /invest, /trades",
+      "lastRun": {
+        "ranAt": "2026-03-09T13:20:00.000Z",
+        "runner": "browser",
+        "environment": { "browser": "chromium" },
+        "evidence": [
+          {
+            "type": "playwright-report",
+            "path": "frontend/e2e/results/report.json"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AS-FE-3",
+      "status": "pass",
+      "notes": "All 3 pages render: /, /invest, /trades",
+      "lastRun": {
+        "ranAt": "2026-03-09T13:20:00.000Z",
+        "runner": "browser",
+        "environment": { "browser": "chromium" },
+        "evidence": [
+          {
+            "type": "playwright-report",
+            "path": "frontend/e2e/results/report.json"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+version: "1.0"
+name: "alpha-street"
+
+staging-settings:
+  rpcs:
+    - chain-name: avalanche-testnet-fuji
+      url: https://api.avax-test.network/ext/bc/C/rpc
+
+workflows:
+  - name: trading
+    path: ./trading

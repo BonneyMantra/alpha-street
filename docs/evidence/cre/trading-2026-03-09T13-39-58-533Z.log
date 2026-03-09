@@ -1,0 +1,32 @@
+workflow=trading
+status=0
+
+stdout:
+✓ Workflow compiled
+2026-03-09T19:10:00Z [SIMULATION] Simulator Initialized
+
+2026-03-09T19:10:00Z [SIMULATION] Running trigger trigger=http-trigger@1.0.0-alpha
+2026-03-09T19:10:02Z [USER LOG] Vault state — totalAssets: 100000000000, NAV: 100000000000, trades: 2
+2026-03-09T19:10:02Z [USER LOG] Prices — ETH: $2011.52, BTC: $68790, AVAX: $9.21
+2026-03-09T19:10:09Z [USER LOG] AI decision — BUY ETH/USD, amount: 8044208000, confidence: 82
+2026-03-09T19:10:09Z [USER LOG] Reasoning (TEE-only): ETH shows the strongest 24h momentum at +4.0%, outpacing BTC and AVAX. Allocating ~8% of totalAssets to ride the uptrend.
+2026-03-09T19:10:10Z [USER LOG] Trade recorded on-chain — TX: unknown
+
+✓ Workflow Simulation Result:
+{}
+
+2026-03-09T19:10:10Z [SIMULATION] Execution finished signal received
+2026-03-09T19:10:10Z [SIMULATION] Skipping WorkflowEngineV2
+
+╭──────────────────────────────────────────────────────╮
+│ Simulation complete! Ready to deploy your workflow?  │
+│                                                      │
+│ Run cre account access to request deployment access. │
+╰──────────────────────────────────────────────────────╯
+
+
+stderr:
+Initializing...
+Loading settings...
+Checking RPC connectivity...
+Compiling workflow...

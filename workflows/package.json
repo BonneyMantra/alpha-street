@@ -1,0 +1,16 @@
+{
+  "name": "alpha-street-workflows",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:cre": "node scripts/run-ctest.mjs"
+  },
+  "dependencies": {
+    "@chainlink/cre-sdk": "latest",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.0.0"
+  }
+}

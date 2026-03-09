@@ -1,0 +1,20 @@
+{
+  "app": "alpha-street",
+  "frontend": {
+    "baseUrl": "http://localhost:3020",
+    "roles": ["visitor", "investor", "admin"]
+  },
+  "workflows": {
+    "packagePath": "workflows",
+    "simulateCommand": "cre workflow simulate",
+    "entries": {
+      "trading": {
+        "payloadFixture": "docs/fixtures/workflows/trading.json"
+      }
+    }
+  },
+  "contracts": {
+    "packagePath": "contracts",
+    "testCommand": "forge test --json"
+  }
+}

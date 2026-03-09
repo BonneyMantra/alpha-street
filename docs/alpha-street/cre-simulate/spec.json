@@ -1,0 +1,55 @@
+{
+  "app": "alpha-street",
+  "section": "cre-simulate",
+  "title": "CRE Simulation",
+  "description": "Deterministic CRE simulation checks for trading workflow.",
+  "executionOrder": 2,
+  "sectionDependsOn": ["alpha-street/frontend-core"],
+  "tests": [
+    {
+      "id": "AS-CRE-1",
+      "title": "trading workflow simulation succeeds with deterministic trading fixture.",
+      "description": "This test validates workflow runtime behavior using deterministic fixture inputs. It catches CRE dependency and runtime regressions in the trading workflow.",
+      "preconditions": [
+        "CRE CLI is installed",
+        "workflow dependencies are installed"
+      ],
+      "steps": [
+        "Run cre workflow simulate trading with docs/fixtures/workflows/trading.json payload",
+        "Capture simulation output",
+        "Verify successful exit"
+      ],
+      "successCriteria": "Simulation exits successfully and output evidence is persisted.",
+      "mode": "manual",
+      "priority": "regression",
+      "tags": ["cre", "simulate", "trading"],
+      "dependsOn": [],
+      "fixtures": ["workflows.entries.trading.payloadFixture"],
+      "routes": [],
+      "pages": [],
+      "tables": ["trades", "vault_nav"],
+      "roles": ["operator"]
+    },
+    {
+      "id": "AS-CRE-2",
+      "title": "Trading workflow simulation remains deterministic across repeated runs with identical fixture input.",
+      "description": "This deep simulation test verifies output stability by executing the workflow twice with the same payload. It catches hidden nondeterminism and unstable workflow behavior.",
+      "preconditions": ["AS-CRE-1 passes"],
+      "steps": [
+        "Run cre workflow simulate trading with deterministic fixture",
+        "Run the same command again with identical fixture",
+        "Compare output markers and assert deterministic behavior"
+      ],
+      "successCriteria": "Both simulations succeed and produce deterministic output structure for key markers.",
+      "mode": "manual",
+      "priority": "deep",
+      "tags": ["cre", "determinism", "deep"],
+      "dependsOn": ["AS-CRE-1"],
+      "fixtures": ["workflows.entries.trading.payloadFixture"],
+      "routes": [],
+      "pages": [],
+      "tables": ["trades", "vault_nav"],
+      "roles": ["operator"]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "strategy": "momentum-demo",
+  "riskLevel": "medium",
+  "vaultAddress": "0x000000000000000000000000000000000000dEaD"
+}

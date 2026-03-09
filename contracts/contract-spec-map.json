@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "suite": "AlphaVault.t.sol",
+      "section": "contracts-core",
+      "specIds": ["AS-CON-1", "AS-CON-2"]
+    }
+  ]
+}
